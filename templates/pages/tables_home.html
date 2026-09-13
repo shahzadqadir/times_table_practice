@@ -1,0 +1,263 @@
+{% extends '_base.html' %}
+
+{% block title %}Practice Times Tables{% endblock %}
+
+{% block content %}
+
+<div class="app">
+
+    <h1>⭐ Times Tables Trainer</h1>
+
+    <div class="subtitle">
+        Practise a little every day and watch yourself improve!
+    </div>
+
+
+    <!-- =========================
+         DASHBOARD
+    ========================== -->
+
+    <div class="dashboard">
+
+        <div class="stat-card">
+            <div class="stat-number" id="totalQuestions">0</div>
+            <div class="stat-label">Questions answered</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number" id="accuracy">0%</div>
+            <div class="stat-label">Overall accuracy</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number" id="bestScore">0/10</div>
+            <div class="stat-label">Best score</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number" id="bestStreak">0 🔥</div>
+            <div class="stat-label">Longest streak</div>
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SETUP
+    ========================== -->
+
+    <div class="setup" id="setup">
+
+        <h2>Choose your tables</h2>
+
+        <div class="tables" id="tables"></div>
+
+        <div class="button-row">
+
+            <button class="small-button" onclick="selectAll()">
+                Select All
+            </button>
+
+            <button class="small-button" onclick="clearTables()">
+                Clear
+            </button>
+
+        </div>
+
+        <br>
+
+        <button class="start-button" onclick="startGame()">
+            🚀 Start Challenge
+        </button>
+
+
+        <!-- TABLE PROGRESS -->
+
+        <div class="progress-section">
+
+            <h3>📊 Your Progress</h3>
+
+            <div id="tableProgress"></div>
+
+        </div>
+
+
+        <button class="reset-button" onclick="resetProgress()">
+            Reset all saved progress
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         GAME
+    ========================== -->
+
+    <div class="game" id="game">
+
+        <div class="top-bar">
+
+            <span id="questionNumber">
+                Question 1 of 10
+            </span>
+
+            <span>
+                ⭐ <span id="score">0</span>
+            </span>
+
+        </div>
+
+
+        <div class="progress-container">
+
+            <div class="progress" id="progress"></div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question" id="question">
+                5 × 6
+            </div>
+
+
+            <input
+                type="number"
+                id="answer"
+                class="answer-input"
+                autocomplete="off"
+            >
+
+
+            <button
+                class="submit-button"
+                id="submitButton"
+                onclick="checkAnswer()">
+
+                Check Answer
+
+            </button>
+
+
+            <div
+                class="feedback"
+                id="feedback">
+            </div>
+
+
+            <button
+                class="next-button"
+                id="nextButton"
+                onclick="nextQuestion()">
+
+                Next Question →
+
+            </button>
+
+        </div>
+
+
+        <div class="score-board">
+
+            <div class="score-item">
+
+                <div
+                    class="score-number"
+                    id="correct">
+                    0
+                </div>
+
+                <div class="score-label">
+                    Correct
+                </div>
+
+            </div>
+
+
+            <div class="score-item">
+
+                <div
+                    class="score-number"
+                    id="wrong">
+                    0
+                </div>
+
+                <div class="score-label">
+                    Try Again
+                </div>
+
+            </div>
+
+
+            <div class="score-item">
+
+                <div
+                    class="score-number"
+                    id="streak">
+                    0
+                </div>
+
+                <div class="score-label">
+                    🔥 Streak
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+
+    <div class="results" id="results">
+
+        <div
+            class="results-emoji"
+            id="resultsEmoji">
+            🏆
+        </div>
+
+
+        <h2>
+            Challenge Complete!
+        </h2>
+
+
+        <div
+            class="final-score"
+            id="finalScore">
+            8 / 10
+        </div>
+
+
+        <div
+            class="new-best"
+            id="newBest">
+            🏆 NEW PERSONAL BEST!
+        </div>
+
+
+        <div
+            class="final-message"
+            id="finalMessage">
+            Fantastic work!
+        </div>
+
+
+        <button
+            class="restart-button"
+            onclick="restartGame()">
+
+            🔄 Play Again
+
+        </button>
+
+    </div>
+
+</div>
+
+{% endblock %}

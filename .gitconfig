@@ -1,0 +1,5 @@
+[user]
+	name = Shahzad Qadir
+	email = shahzadqadir@hotmail.co.uk
+[credential]
+	helper = "!f() { /home/script/.vscode-server/bin/a44adf7f53e00964ab890f9f8758a334f1fc15bc/node /tmp/vscode-remote-containers-23b5d0c6-1705-4b5f-a4e4-6171cba5e54f.js git-credential-helper $*; }; f"
