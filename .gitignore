@@ -1,0 +1,7 @@
+.copilot/
+.cache/
+.gnupg/
+.ssh/
+.vscode-server/
+.env/
+__pycache__/
